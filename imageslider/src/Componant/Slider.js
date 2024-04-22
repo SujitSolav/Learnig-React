@@ -77,7 +77,7 @@ function Slider() {
       <label htmlFor="">Paste Image link  <input value={link} onChange={(e)=>{setLink(e.target.value)}} type="text" /></label>
       <button type='submit'> Submit</button>
       </form>
-    </div>
+    </div>  
   );
 }
 
