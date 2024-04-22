@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 function Slider() {
-  const images = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [link, setLink] = useState("");
+  const [images, setImages] = useState([
     'https://c4.wallpaperflare.com/wallpaper/1020/1/213/world-of-warcraft-battle-for-azeroth-video-games-warcraft-alliance-wallpaper-preview.jpg',
     'https://c4.wallpaperflare.com/wallpaper/974/565/254/windows-11-windows-10-minimalism-hd-wallpaper-thumb.jpg',
     'https://c4.wallpaperflare.com/wallpaper/365/244/884/uchiha-itachi-naruto-shippuuden-anbu-silhouette-wallpaper-thumb.jpg'
-  ];
-  const [currentSlide, setCurrentSlide] = useState(0);
+  ]);
 
   const goToPreviousSlide = () => {
     setCurrentSlide((slide) => (slide === 0 ? images.length - 1 : slide - 1));
@@ -15,6 +16,12 @@ function Slider() {
   const goToNextSlide = () => {
     setCurrentSlide((slide) => (slide === images.length - 1 ? 0 : slide + 1));
   };
+  const handleSubmit= (e)=>{
+    e.preventDefault();
+    const updatedImages = [...images, link];
+    setImages(updatedImages);
+    setLink(""); 
+  }
 
   return (
     <div style={{ textAlign: 'center', margin: '20px auto', maxWidth: '700px' }}>
@@ -66,6 +73,10 @@ function Slider() {
           Next
         </button>
       </div>
+      <form onSubmit={handleSubmit}>
+      <label htmlFor="">Paste Image link  <input value={link} onChange={(e)=>{setLink(e.target.value)}} type="text" /></label>
+      <button type='submit'> Submit</button>
+      </form>
     </div>
   );
 }
