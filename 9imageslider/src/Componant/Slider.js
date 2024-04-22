@@ -8,7 +8,7 @@ function Slider() {
     'https://c4.wallpaperflare.com/wallpaper/974/565/254/windows-11-windows-10-minimalism-hd-wallpaper-thumb.jpg',
     'https://c4.wallpaperflare.com/wallpaper/365/244/884/uchiha-itachi-naruto-shippuuden-anbu-silhouette-wallpaper-thumb.jpg'
   ]);
-
+                                                        
   const goToPreviousSlide = () => {
     setCurrentSlide((slide) => (slide === 0 ? images.length - 1 : slide - 1));
   };
